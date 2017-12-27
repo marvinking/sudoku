@@ -13,7 +13,7 @@ const matrixToolkit = {
     // const array = new Array(9);
     // array.fill(makeRow(v));
     // return array;
-    return Array.from({ length: 9 }, () => makeRow(v));
+    return Array.from({ length: 9 }, () => this.makeRow(v));
   },
 
   /**

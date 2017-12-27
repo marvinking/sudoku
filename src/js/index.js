@@ -4,7 +4,24 @@
 // import toolkit from './toolkit';
 const toolkit = require('./toolkit');
 
-const a = Array.from({ length: 9 }, (v, i) => i);
-console.log(11, a);
+class Grid {
+  constructor(container) {
+    this._$container = container;
+  }
 
-console.log(22, toolkit.shuffle(a));
+  build () {
+    const matrix = toolkit.makeMatrix();
+
+    const $cells = matrix.map(rowValues => rowValues.map(cellValue => {
+      return $('<span>').text(cellValue);
+    }));
+
+    const $divArray = $cells.map($spanArray => {
+      return $('<div>').append($spanArray);
+    });
+
+    this._$container.append($divArray);
+  }
+}
+
+new Grid($('#container')).build();
