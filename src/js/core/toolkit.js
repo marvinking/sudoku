@@ -2,6 +2,11 @@
  * Created by marvin on 17/12/27.
  */
 
+/**
+ * 矩阵和数组相关工具
+ * @type {{makeRow: (function(*=)), makeMatrix: (function(*=)), shuffle: (function(*))}}
+ */
+
 const matrixToolkit = {
   makeRow (v = 0) {
     const array = new Array(9);
@@ -18,6 +23,7 @@ const matrixToolkit = {
 
   /**
    * Fisher-Yates 洗牌算法
+   * 对传入数组进行随机排序，然后把这个数组返回出来
    * @param array
    */
    shuffle (array) {
@@ -32,4 +38,5 @@ const matrixToolkit = {
   }
 };
 
+// 工具集
 module.exports = matrixToolkit;

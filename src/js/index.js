@@ -2,7 +2,7 @@
  * Created by marvin on 17/12/27.
  */
 // import toolkit from './toolkit';
-const toolkit = require('./toolkit');
+const toolkit = require('./core/toolkit');
 
 class Grid {
   constructor(container) {
