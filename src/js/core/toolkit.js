@@ -38,5 +38,29 @@ const matrixToolkit = {
   }
 };
 
+/**
+ * 宫坐标系工具
+ * @type {{}}
+ */
+const boxToolkit = {
+  // todo
+};
+
 // 工具集
-module.exports = matrixToolkit;
+module.exports = class Toolkit {
+  /**
+   * 矩阵和数据相关工具
+   * @returns {{makeRow: (function(*=)), makeMatrix: (function(*=)), shuffle: (function(*))}}
+   */
+  static get matrix () {
+    return matrixToolkit;
+  }
+
+  /**
+   * 宫坐标系相关工具
+   * @returns {{}}
+   */
+  static get box () {
+    return boxToolkit;
+  }
+};
