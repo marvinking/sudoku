@@ -1,3 +1,4 @@
+@shadowTop: 0 -0.1rem 0.2rem rgba(48, 48, 48, 192);
 @shadowBottom: 0 0.2rem 0.3rem rgba(48, 48, 48, 192);
 
 html {
@@ -18,7 +19,7 @@ body {
   padding: 1rem 5%;
   background: steelBlue;
   color: white;
-  margin: 2rem;
+  margin-bottom: 2rem;
   box-shadow: @shadowBottom;
 
   h1 {
@@ -28,3 +29,34 @@ body {
 }
 
 .hidden { display: none; }
+
+.dashboard {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 0;
+  background: steelblue;
+  box-sizing: border-box;
+  box-shadow: @shadowTop;
+  height: 3rem;
+
+  .buttons {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    button {
+      float: left;
+      width: 25%;
+      height: 3rem;
+      font-size: 1.3rem;
+      color: white;
+      border: 1px solid #ccc;
+      background: transparent;
+      border-right-width: 0;
+      &:last-child { border-right-width: 1px; }
+    }
+  }
+}
