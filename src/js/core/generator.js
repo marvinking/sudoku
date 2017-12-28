@@ -4,7 +4,7 @@
 const Toolkit = require('./toolkit');
 
 // 生成数独解决方案
-class Generator {
+module.exports = class Generator {
 
   generator () {
     let i = 0;
@@ -64,8 +64,4 @@ class Generator {
     // 当前行填写n成功，递归调用fillRow()来在一行中填写n
     // this.fillRow(n, rowIndex + 1);
   }
-}
-
-const generator = new Generator();
-generator.generator();
-console.log(generator.matrix);
+};

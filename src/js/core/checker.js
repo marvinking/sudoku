@@ -1,6 +1,7 @@
 /**
  * Created by marvin on 17/12/27.
  */
+const Toolkit = require('./toolkit');
 
 // 检查数独解决方案
 function checkArray (array) {
@@ -29,3 +30,93 @@ function checkArray (array) {
 
   return marks;
 }
+
+// 输入：matrix，用户完成的数独数据，9 x 9 二维数组
+// 处理：对matrix的行、列、宫进行检查，并填写marks
+// 输出：检查是否成功和marks
+class Checker {
+  constructor (matrix) {
+    this._matrix = matrix;
+    this._matrixMarks = Toolkit.matrix.makeMatrix(true);
+  }
+
+  get matrixMarks () {
+    return this._matrixMarks;
+  }
+
+  get isSuccess () {
+    return this._success;
+  }
+
+  check () {
+    this.checkRows();
+    this.checkCols();
+    this.checkBoxes();
+
+    // 检查是否成功
+    // Array.prototype.every()
+    this._success = this._matrixMarks.every(row => row.every(mark => mark));
+    return this._success;
+  }
+
+  checkRows () {
+    for (let rowIndex = 0; rowIndex < 9; rowIndex++) {
+      const row = this._matrix[rowIndex];
+      const marks = checkArray(row);
+
+      for (let colIndex = 0; colIndex < marks.length; colIndex++){
+        if (!marks[colIndex]) {
+          this._matrixMarks[rowIndex][colIndex] = false;
+        }
+      }
+    }
+  }
+
+  checkCols () {
+    for (let colIndex = 0; colIndex < 9; colIndex++) {
+      const col = [];
+
+      for (let rowIndex = 0; rowIndex < 9; rowIndex++) {
+        col[rowIndex] = this._matrix[rowIndex][colIndex];
+      }
+
+      const marks = checkArray(col);
+
+      for (let rowIndex = 0; rowIndex < marks.length; rowIndex++) {
+        if (!marks[rowIndex]) {
+          this._matrixMarks[colIndex][rowIndex] = false;
+        }
+      }
+    }
+  }
+
+  checkBoxes () {
+    for (let boxIndex = 0; boxIndex < 9; boxIndex++) {
+      const box = Toolkit.box.getBoxCells(matrix, boxIndex);
+      const marks = checkArray(box);
+
+      for (let cellIndex = 0; cellIndex < 9; cellIndex++) {
+        if (!marks[cellIndex]) {
+          const { rowIndex, colIndex }
+            = Toolkit.box.convertFromBoxIndex(boxIndex, cellIndex);
+          this._matrixMarks[rowIndex][colIndex] = false;
+        }
+      }
+    }
+  }
+}
+
+// const Generator = require('./generator');
+// const gen = new Generator();
+// gen.generator();
+// const matrix = gen.matrix;
+//
+// const checker = new Checker(matrix);
+// console.log(checker.check());
+// console.log(checker.matrixMarks);
+//
+// matrix[1][1] = 0;
+// matrix[2][3] = matrix[5][3] = 5;
+// const checker2 = new Checker(matrix);
+// console.log(checker2.check());
+// console.log(checker2.matrixMarks);
