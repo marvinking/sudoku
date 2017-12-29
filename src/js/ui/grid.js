@@ -53,6 +53,11 @@ class Grid {
     this._$container.on('click', 'span', e => {
       const $cell = $(e.target);
 
+      if ($cell.hasClass('filled')) {
+        popupNumbers.hide();
+        return;
+      }
+
       popupNumbers.popup($cell);
     });
   }

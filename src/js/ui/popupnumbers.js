@@ -49,12 +49,10 @@ module.exports = class PopupNumbers {
     this._$targetCell = $cell;
     const { left, top } = $cell.position();
 
-    if (!$cell.hasClass('filled')) {
-      this._$panel.css({
-        left: `${left}px`,
-        top: `${top}px`
-      }).show();
-    } else { this.hide(); }
+    this._$panel.css({
+      left: `${left}px`,
+      top: `${top}px`
+    }).show();
   }
 
   hide () {
