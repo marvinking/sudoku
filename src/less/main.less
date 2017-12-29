@@ -92,6 +92,10 @@ body {
       }
 
       &.empty { color: white; }
+
+      &.mark1 { background: lightpink; }
+
+      &.mark2 { background: lightgreen; }
     }
 
     &:first-child {
@@ -104,6 +108,19 @@ body {
 
     &.row_g_bottom {
       > span { border-bottom-width: 1px; }
+    }
+  }
+}
+
+@popupCellSize: 40px;
+.popup-num {
+  .container();
+
+  .row {
+    > span {
+      width: @popupCellSize;
+      height: @popupCellSize;
+      line-height: @popupCellSize;
     }
   }
 }
