@@ -12,3 +12,19 @@ grid.build();
 grid.layout();
 
 grid.bindPopup(popupNumbers);
+
+$('#check').on('click', e => {
+
+});
+
+$('#reset').on('click', e => {
+
+});
+
+$('#clear').on('click', e => {
+
+});
+
+$('#rebuild').on('click', e => {
+  grid.rebuild();
+});
