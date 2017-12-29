@@ -14,7 +14,7 @@ grid.layout();
 grid.bindPopup(popupNumbers);
 
 $('#check').on('click', e => {
-  grid.check();
+  if (grid.check()) alert('成功');
 });
 
 $('#reset').on('click', e => {
