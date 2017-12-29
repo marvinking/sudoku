@@ -94,9 +94,15 @@ body {
 
       &.empty { color: white; }
 
-      &.mark1 { background: lightpink; }
+      &.mark1 { background: lightblue; }
 
       &.mark2 { background: lightgreen; }
+
+      &.error {
+        background: lightpink;
+
+        &.empty { color: lightpink; }
+      }
     }
 
     &:first-child {
