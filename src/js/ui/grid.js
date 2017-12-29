@@ -55,6 +55,12 @@ class Grid {
       popupNumbers.popup($cell);
     });
   }
+
+  rebuild () {
+    this._$container.empty();
+    this.build();
+    this.layout();
+  }
 }
 
 module.exports = Grid;
