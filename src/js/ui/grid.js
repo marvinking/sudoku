@@ -93,7 +93,10 @@ class Grid {
    * 重置当前谜盘到初始状态
    */
   reset () {
-
+    this._$container.find('span:not(.filled)')
+      .removeClass('error mark1 mark2')
+      .addClass('empty')
+      .text(0);
   }
 
   /**
