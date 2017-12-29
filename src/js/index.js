@@ -14,15 +14,15 @@ grid.layout();
 grid.bindPopup(popupNumbers);
 
 $('#check').on('click', e => {
-
+  grid.check();
 });
 
 $('#reset').on('click', e => {
-
+  grid.reset();
 });
 
 $('#clear').on('click', e => {
-
+  grid.clear();
 });
 
 $('#rebuild').on('click', e => {

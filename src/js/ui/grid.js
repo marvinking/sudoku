@@ -4,6 +4,7 @@
 const Toolkit = require('../core/toolkit');
 const Generator = require('../core/generator');
 const Sudoku = require('../core/sudoku');
+const Checker = require('../core/checker');
 
 // 生成九宫格
 class Grid {
@@ -56,6 +57,55 @@ class Grid {
     });
   }
 
+  /**
+   * 检查用户解谜的结果，成功则进行提示，失败显示错误位置的标记
+   */
+  check () {
+    const $rows = this._$container.children();
+    const data = $rows.map((rowIndex, div) => {
+      return $(div).children()
+        .map((colIndex, span) => parseInt($(span).text()) || 0);
+    })
+      .toArray()
+      .map($data => $data.toArray());
+    const checker = new Checker(data);
+    if (checker.check()) {
+      return true;
+    }
+
+    // 检查不成功，进行错误位置标记
+    const marks = checker.matrixMarks;
+    this._$container.children()
+      .each((rowIndex, div) => {
+        $(div).children().each((colIndex, span) => {
+          const $span = $(span);
+
+          if ($span.is('.filled') || marks[rowIndex][colIndex]) {
+            $span.removeClass('error');
+          } else {
+            $span.addClass('error');
+          }
+        })
+      })
+  }
+
+  /**
+   * 重置当前谜盘到初始状态
+   */
+  reset () {
+
+  }
+
+  /**
+   * 清理错误标记
+   */
+  clear () {
+
+  }
+
+  /**
+   * 重新创建新的谜盘
+   */
   rebuild () {
     this._$container.empty();
     this.build();
