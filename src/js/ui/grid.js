@@ -108,7 +108,8 @@ class Grid {
    * 清理错误标记
    */
   clear () {
-
+    this._$container.find('span.error')
+      .removeClass('error');
   }
 
   /**
