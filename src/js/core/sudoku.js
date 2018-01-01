@@ -16,7 +16,8 @@ module.exports = class Suduku {
     this.solutionMatrix = generator.matrix;
   }
 
-  make (level = 5) {
+  make (level) {
+    level = !level ? 5 : level;
     // const shouldRid = Math.random() * 9 < level;
     // 生成迷盘
     // 随机去掉部分数据
