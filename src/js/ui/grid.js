@@ -12,12 +12,12 @@ class Grid {
     this._$container = container;
   }
 
-  build () {
+  build (level) {
     // const gen = new Generator();
     // gen.generator();
     // const matrix = gen.matrix;
     const sudoku = new Sudoku();
-    sudoku.make();
+    sudoku.make(level);
     const matrix = sudoku.puzzleMatrix;
 
     const rowGroupClasses = ['row_g_top', 'row_g_middle', 'row_g_bottom'];
@@ -115,9 +115,9 @@ class Grid {
   /**
    * 重新创建新的谜盘
    */
-  rebuild () {
+  rebuild (level) {
     this._$container.empty();
-    this.build();
+    this.build(level);
     this.layout();
   }
 }

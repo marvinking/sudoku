@@ -26,5 +26,11 @@ $('#clear').on('click', e => {
 });
 
 $('#rebuild').on('click', e => {
-  grid.rebuild();
+  let level = $("select").find("option:selected").val();
+  grid.rebuild(level);
+});
+
+$('select').on('change', () => {
+  let level = $("select").find("option:selected").val();
+  grid.rebuild(level);
 });
