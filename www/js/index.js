@@ -340,7 +340,13 @@ $('#clear').on('click', function (e) {
 });
 
 $('#rebuild').on('click', function (e) {
-  grid.rebuild();
+  var level = $("select").find("option:selected").val();
+  grid.rebuild(level);
+});
+
+$('select').on('change', function () {
+  var level = $("select").find("option:selected").val();
+  grid.rebuild(level);
 });
 
 /***/ }),
@@ -373,12 +379,12 @@ var Grid = function () {
 
   _createClass(Grid, [{
     key: 'build',
-    value: function build() {
+    value: function build(level) {
       // const gen = new Generator();
       // gen.generator();
       // const matrix = gen.matrix;
       var sudoku = new Sudoku();
-      sudoku.make();
+      sudoku.make(level);
       var matrix = sudoku.puzzleMatrix;
 
       var rowGroupClasses = ['row_g_top', 'row_g_middle', 'row_g_bottom'];
@@ -481,9 +487,9 @@ var Grid = function () {
 
   }, {
     key: 'rebuild',
-    value: function rebuild() {
+    value: function rebuild(level) {
       this._$container.empty();
-      this.build();
+      this.build(level);
       this.layout();
     }
   }]);
@@ -526,9 +532,8 @@ module.exports = function () {
 
   _createClass(Suduku, [{
     key: 'make',
-    value: function make() {
-      var level = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 5;
-
+    value: function make(level) {
+      level = !level ? 5 : level;
       // const shouldRid = Math.random() * 9 < level;
       // 生成迷盘
       // 随机去掉部分数据

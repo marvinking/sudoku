@@ -76,12 +76,15 @@ body > * {
 }
 .container .row > span:first-child {
   border-left-width: 2px;
+  border-left-color: #303030;
 }
 .container .row > span:last-child {
   border-right-width: 2px;
+  border-right-color: #303030;
 }
 .container .row > span.col_g_right {
   border-right-width: 1px;
+  border-right-color: #303030;
 }
 .container .row > span.filled {
   background: #efefef;
@@ -110,12 +113,15 @@ body > * {
 }
 .container .row:first-child > span {
   border-top-width: 2px;
+  border-top-color: #303030;
 }
 .container .row:last-child > span {
   border-bottom-width: 2px;
+  border-bottom-color: #303030;
 }
 .container .row.row_g_bottom > span {
   border-bottom-width: 1px;
+  border-bottom-color: #303030;
 }
 .popup-num {
   padding-left: 5%;
@@ -136,12 +142,15 @@ body > * {
 }
 .popup-num .row > span:first-child {
   border-left-width: 2px;
+  border-left-color: #303030;
 }
 .popup-num .row > span:last-child {
   border-right-width: 2px;
+  border-right-color: #303030;
 }
 .popup-num .row > span.col_g_right {
   border-right-width: 1px;
+  border-right-color: #303030;
 }
 .popup-num .row > span.filled {
   background: #efefef;
@@ -170,12 +179,15 @@ body > * {
 }
 .popup-num .row:first-child > span {
   border-top-width: 2px;
+  border-top-color: #303030;
 }
 .popup-num .row:last-child > span {
   border-bottom-width: 2px;
+  border-bottom-color: #303030;
 }
 .popup-num .row.row_g_bottom > span {
   border-bottom-width: 1px;
+  border-bottom-color: #303030;
 }
 .popup-num .row > span {
   width: 40px;
